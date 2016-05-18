@@ -75,7 +75,7 @@ post '/create_post' do
 end
 get '/delete_post/:post' do
 	# Delete posts
-	if session[:user] == User.find_by(username: "admin").id
+	if session[:user] == User.find_by(username: "admin").id || session[:user] == User.find_by(username: "COadmin").id
 		post = Post.find_by(id: params[:post])
 		post.destroy
 		redirect '/'
