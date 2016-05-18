@@ -5,6 +5,14 @@
 		<p><%= post.content %></p>
 		<br>
 		<h5><em>-@<%= User.find_by(id: post.user_id).username %></em></h5>	
+		<br>
+		<% if User.find_by(username: "admin").id == session[:user] %>
+		<a href="/delete_post/<%= post.id %>">
+		<button class="btn btn-default">
+			<span class="glyphicon glyphicon-trash"></span>
+		</button>
+		</a>
+		<% end %>
 	</div>
 	<% end %>
 </div>

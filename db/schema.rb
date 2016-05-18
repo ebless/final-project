@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20160513164633) do
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.text    "title"
-    t.text    "content"
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
