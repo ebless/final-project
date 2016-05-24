@@ -81,3 +81,13 @@ get '/delete_post/:post' do
 		redirect '/'
 	end
 end
+get '/search_for' do
+	# Render page for searcing
+	erb :search
+end
+
+post '/search_for' do
+	# Search for post containing query
+	@posts = Post.where("content like ?", "%" + params[:search_term] + "%")
+	erb :index
+end

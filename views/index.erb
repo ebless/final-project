@@ -1,4 +1,9 @@
+
+
 <div class="container-fluid">
+	<% if params[:search_term] %>
+	<h2>Your search for "<%=params[:search_term]%>" returned: </h2>
+	<% end %>
 	<% @posts.each do |post| %>
 	<div class="post">
 		<h2><%= post.title %></h2>
